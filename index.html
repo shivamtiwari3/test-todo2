@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life Goals Todo App</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h1>LifeGoals</h1>
+                <button id="toggleSidebar" class="icon-button">
+                    <span class="material-icons">menu</span>
+                </button>
+            </div>
+            
+            <ul class="nav-menu">
+                <li class="active">
+                    <a href="#today">
+                        <span class="material-icons">today</span>
+                        Today's Tasks
+                    </a>
+                </li>
+                <li>
+                    <a href="#upcoming">
+                        <span class="material-icons">calendar_month</span>
+                        Upcoming
+                    </a>
+                </li>
+                <li>
+                    <a href="#areas">
+                        <span class="material-icons">category</span>
+                        Areas of Life
+                    </a>
+                </li>
+                <li>
+                    <a href="#goals">
+                        <span class="material-icons">flag</span>
+                        Goals
+                    </a>
+                </li>
+                <li>
+                    <a href="#projects">
+                        <span class="material-icons">folder</span>
+                        Projects
+                    </a>
+                </li>
+                <li>
+                    <a href="#completed">
+                        <span class="material-icons">check_circle</span>
+                        Completed
+                    </a>
+                </li>
+            </ul>
+
+            <div class="theme-toggle">
+                <button id="themeToggle" class="icon-button">
+                    <span class="material-icons">dark_mode</span>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div id="today" class="view active">
+                <header class="view-header">
+                    <h2>Today</h2>
+                    <div class="progress-container">
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 60%"></div>
+                        </div>
+                        <span class="progress-text">12/20 tasks completed</span>
+                    </div>
+                </header>
+
+                <div class="quick-add-container">
+                    <input type="text" id="quickAddTask" placeholder="Add a task... (Press '/' for quick add)">
+                    <div class="quick-add-buttons">
+                        <button class="icon-button">
+                            <span class="material-icons">schedule</span>
+                        </button>
+                        <button class="icon-button">
+                            <span class="material-icons">flag</span>
+                        </button>
+                        <button class="icon-button">
+                            <span class="material-icons">folder</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="time-section">
+                    <h3>Morning</h3>
+                    <div class="task-list" data-time="morning">
+                        <div class="task-item" draggable="true">
+                            <div class="task-checkbox">
+                                <input type="checkbox" id="task1">
+                                <label for="task1"></label>
+                            </div>
+                            <div class="task-content">
+                                <span class="task-title">Review daily goals</span>
+                                <div class="task-meta">
+                                    <span class="project-tag">Personal Growth</span>
+                                    <span class="material-icons priority-high">flag</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Habit Tracker Section -->
+                <div class="habits-section">
+                    <h3>Daily Habits</h3>
+                    <div class="habit-list">
+                        <div class="habit-item">
+                            <div class="habit-checkbox">
+                                <input type="checkbox" id="habit1">
+                                <label for="habit1"></label>
+                            </div>
+                            <div class="habit-content">
+                                <span class="habit-title">Read 10 pages</span>
+                                <div class="streak-counter">
+                                    🔥 5 days
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Quick Add Modal -->
+    <button id="quickAddButton" class="floating-action-button">
+        <span class="material-icons">add</span>
+    </button>
+
+    <script src="js/models/Task.js"></script>
+    <script src="js/models/TodoApp.js"></script>
+    <script src="js/app.js"></script>
+
+    <!-- Initialize the app when the DOM is loaded -->
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        window.todoApp = new TodoApp();
+    });
+    </script>
+</body>
+</html> 
+
+
